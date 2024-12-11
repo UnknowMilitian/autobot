@@ -30,7 +30,7 @@ class TelegramWebhook(View):
         try:
             data = json.loads(request.body)
             print(data)
-            async_to_sync(dp.feed_update)(bot=bot, update=types.Update(**data))
+            async_to_sync(dp.feed_update)(bot=bot, update=types.Update(**data)) # Added async to sync
         except json.JSONDecodeError:
             print("error")
             return HttpResponse("Invalid JSON", status=400)
