@@ -1,5 +1,5 @@
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from apps.utils.callback_data import cb_main_menu_callback_data, MainMenuActions
+from apps.bots.utils.callback_data import cb_main_menu_callback_data, MainMenuActions
 
 
 def inline_main_menu():
