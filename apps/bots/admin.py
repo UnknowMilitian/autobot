@@ -14,9 +14,9 @@ from .models import (
 
 @admin.register(TelegramBotConfiguration)
 class TelegramBotConfigurationAdmin(admin.ModelAdmin):
-    list_display = ("bot_token", "webhook_url", "admin")
+    list_display = ("bot_token", "admin")
     fieldsets = (
-        ("Bot Settings", {"fields": ("bot_token", "secret_key", "webhook_url")}),
+        ("Bot Settings", {"fields": ("bot_token", "secret_key")}),
         ("Admin Settings", {"fields": ("admin",)}),
     )
 
@@ -49,7 +49,7 @@ class CarBrandAdmin(admin.ModelAdmin):
 
 @admin.register(CarModel)
 class CarModelAdmin(admin.ModelAdmin):
-    list_display = ("name", "brand", "popularity_score")
+    list_display = ("name", "brand")
     list_filter = ("brand",)
     search_fields = ("name", "brand__name")
     ordering = ("brand", "name")

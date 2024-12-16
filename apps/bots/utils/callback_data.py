@@ -2,15 +2,15 @@ from enum import Enum
 from aiogram.filters.callback_data import CallbackData
 
 
-class MainMenuActions(str, Enum):
-    ORDER = "order"
-    ABOUT = "about"
-    MY_ORDERS = "my_orders"
+class LanguageSelectActions(str, Enum):
+    UZBEK = "uzbek"
+    RUSSIAN = "russian"
+    ENGLISH = "english"
 
 
-class MainMenuCallbackData(CallbackData):
-    action = MainMenuActions.value
+class LanguageSelectCallbackData(CallbackData, prefix="select_language"):
+    language: LanguageSelectActions
 
 
-def cb_main_menu_callback_data(action):
-    return MainMenuCallbackData(action=action).pack()
+def cb_language_select_callback_data(lang):
+    return LanguageSelectCallbackData(language=lang.value).pack()

@@ -1,13 +1,16 @@
 from aiogram import Router, types, F
 from aiogram.filters import Command
 
+from ..keyboards.inline import inline_language_select
 
 router = Router()
 
 
 @router.message(Command("start"))
 async def start_command(message: types.Message):
-    await message.answer("Hello, I'm a simple bot")
+    await message.answer(
+        "Salom, Xush kelibsiz\nПривет, добро пожаловать\nHello, ur welcome",
+    )
 
 
 @router.message(Command("help"))
