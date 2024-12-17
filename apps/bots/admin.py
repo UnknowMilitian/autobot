@@ -35,7 +35,7 @@ class UserAdmin(admin.ModelAdmin):
         "is_staff",
         "created_at",
     )
-    list_filter = ("is_active", "is_staff", "preferred_language", "date_joined")
+    list_filter = ("is_active", "is_staff", "language", "date_joined")
     search_fields = ("username", "phone_number", "email")
     ordering = ("-created_at",)
 

@@ -14,19 +14,19 @@ class TelegramBotConfiguration(SingletonModel):
 
 class User(AbstractUser):
     class Preferredlanguage(models.TextChoices):
-        UZBEK = "uz", "uz"
-        RUSSIAN = "ru", "ru"
-        ENGLISH = "en", "en"
+        UZ = "uz", "uz"
+        RU = "ru", "ru"
+        EN = "en", "en"
 
     telegram_id = models.BigIntegerField(_("Telegram id"), unique=True, default=0)
     phone_number = models.CharField(max_length=15, unique=True, default="")
     last_activity = models.DateTimeField(auto_now=True)
     total_detections = models.PositiveIntegerField(default=0)
 
-    preferred_language = models.CharField(
+    language = models.CharField(
         _("Preffered language"),
         max_length=20,
-        default=Preferredlanguage.UZBEK,
+        default=Preferredlanguage.UZ,
         choices=Preferredlanguage.choices,
     )
     created_at = models.DateTimeField(auto_now_add=True)
