@@ -61,6 +61,7 @@ class User(AbstractUser):
 
 class CarBrand(models.Model):
     name = models.CharField(_("Car brand"), max_length=100, unique=True)
+    slug = models.SlugField(_("Slug"), max_length=100, unique=True)
     popularity_score = models.FloatField(_("Popularity score"), default=0.0)
 
     def __str__(self):
@@ -76,6 +77,7 @@ class CarModel(models.Model):
         CarBrand, on_delete=models.CASCADE, related_name="car_models"  # Valid name
     )
     name = models.CharField(_("Name"), max_length=100)
+    slug = models.SlugField(_("Slug"), max_length=100)
 
     def __str__(self):
         return self.name
